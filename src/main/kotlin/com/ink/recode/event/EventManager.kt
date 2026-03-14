@@ -22,13 +22,10 @@ object EventManager {
     @Listener
     fun onKey(event: KeyboardEvent)
     {
-        System.out.println("[DEBUG] 收到按键：" + event.key)
-        System.out.println("[DEBUG] 模块数量：" + ModuleManager.modules.size)
+        System.out.println("[DEBUG] key=" + event.key + " modules=" + ModuleManager.modules.size)
         ModuleManager.modules.forEach { module ->
-            System.out.println("[DEBUG] 模块：" + module.name + " 按键：" + module.key)
-            if(module.key == event.key)
-            {
-                System.out.println("[DEBUG] 匹配！切换 " + module.name)
+            if (module.key == event.key) {
+                System.out.println("[DEBUG] toggle " + module.name)
                 module.toggle()
             }
         }

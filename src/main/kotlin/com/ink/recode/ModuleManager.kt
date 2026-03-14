@@ -1,15 +1,15 @@
 // 路径：src/main/kotlin/com/ink/recode/ModuleManager.kt
 package com.ink.recode
 
+import com.ink.recode.event.EventBus
 import java.util.concurrent.CopyOnWriteArrayList
 
 object ModuleManager {
-    // 全局模块列表（线程安全的 List，避免并发修改问题）
     val modules: CopyOnWriteArrayList<Module> = CopyOnWriteArrayList()
 
-    // 注册模块的方法
     fun register(module: Module) {
         modules.add(module)
+        EventBus.register(module)
     }
 
     // 卸载模块的方法

@@ -1,0 +1,63 @@
+{
+    // 深色主题配色方案 - 基于种子色 #7632E6（紫色系）生成
+    "darkTheme": {
+        // 主色调 - 界面主要强调色
+        "primary": "#D2BCFD",          // 主色（浅紫）：用于按钮、选中状态等
+        "surfaceTint": "#D2BCFD",      // 表面着色：用于给表面元素添加主色调的淡色
+        "onPrimary": "#38265C",        // 主色上的文字色（深紫）：保证在primary上的可读性
+        "primaryContainer": "#4F3D74", // 主色容器（深紫）：用于卡片、面板等容器背景
+        "onPrimaryContainer": "#EADDFF", // 主色容器上的文字色（浅紫）：保证在primaryContainer上的可读性
+
+        // 次要色调 - 辅助主色调的配色
+        "secondary": "#CDC2DB",        // 次要色（浅紫灰）：用于次要按钮、次要强调
+        "onSecondary": "#342D40",      // 次要色上的文字色（深紫灰）
+        "secondaryContainer": "#4B4358", // 次要色容器（深紫灰）
+        "onSecondaryContainer": "#E9DEF8", // 次要色容器上的文字色
+
+        // 第三色调 - 用于强调特殊状态/元素
+        "tertiary": "#F0B7C5",         // 第三色（浅粉紫）：用于提醒、特殊标签等
+        "onTertiary": "#4A2530",       // 第三色上的文字色（深粉紫）
+        "tertiaryContainer": "#643B46", // 第三色容器（深粉紫）
+        "onTertiaryContainer": "#FFD9E1", // 第三色容器上的文字色
+
+        // 错误状态配色
+        "error": "#FFB4AB",            // 错误色（浅红）：用于错误提示、失败状态
+        "onError": "#690005",          // 错误色上的文字色（深红）
+        "errorContainer": "#93000A",   // 错误容器背景色（深红）
+        "onErrorContainer": "#FFDAD6", // 错误容器上的文字色（浅红）
+
+        // 基础背景/表面配色
+        "background": "#151218",       // 全局背景色（深黑紫）：App整体背景
+        "onBackground": "#E7E0E8",     // 背景上的文字色（浅灰紫）
+        "surface": "#151218",          // 表面色：卡片、组件等容器背景（同background）
+        "onSurface": "#E7E0E8",        // 表面上的文字色（同onBackground）
+        "surfaceVariant": "#49454E",   // 表面变体：次要容器背景（浅于surface）
+        "onSurfaceVariant": "#CBC4CF", // 表面变体上的文字色
+
+        // 边框/阴影配色
+        "outline": "#948F99",          // 轮廓线色：按钮、输入框边框
+        "outlineVariant": "#49454E",   // 轮廓线变体：次要边框
+        "shadow": "#000000",           // 阴影色：组件阴影
+        "scrim": "#000000",            // 遮罩色：弹窗遮罩
+
+        // 反色配色 - 用于反转对比的场景
+        "inverseSurface": "#E7E0E8",   // 反色表面：反转后的背景
+        "inverseOnSurface": "#322F35", // 反色表面上的文字色
+        "inversePrimary": "#67548E",   // 反色主色：反转后的主色
+
+        // 固定配色 - 不受主题切换影响的固定色值
+        "primaryFixed": "#EADDFF",     // 固定主色
+        "onPrimaryFixed": "#230F46",   // 固定主色上的文字色
+        "primaryFixedDim": "#D2BCFD",  // 固定主色（暗版）
+        "onPrimaryFixedVariant": "#4F3D74", // 固定主色变体上的文字色
+
+        // 表面容器系列 - 不同深浅的表面色，用于区分层级
+        "surfaceDim": "#151218",       // 暗表面：最低层级背景
+        "surfaceBright": "#3B383E",    // 亮表面：高亮容器背景
+        "surfaceContainerLowest": "#0F0D13", // 表面容器（最低）：最暗的容器背景
+        "surfaceContainerLow": "#1D1B20",    // 表面容器（低）：较暗的容器背景
+        "surfaceContainer": "#211F24",       // 表面容器（默认）：标准容器背景
+        "surfaceContainerHigh": "#2B292F",   // 表面容器（高）：较亮的容器背景
+        "surfaceContainerHighest": "#36343A" // 表面容器（最高）：最亮的容器背景
+    }
+}

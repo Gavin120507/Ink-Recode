@@ -3,7 +3,6 @@ package com.ink.recode
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory
 import com.ink.recode.event.*
-import com.ink.recode.modules.impl.*
 import com.ink.recode.modules.impl.movement.Sprint
 
 object InkRecode : ModInitializer {
