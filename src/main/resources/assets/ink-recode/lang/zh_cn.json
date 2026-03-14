@@ -1,0 +1,16 @@
+{
+  "ink.recode.module.enabled": "已启用",
+  "ink.recode.module.disabled": "已禁用",
+  "ink.recode.command.help": "显示所有可用命令",
+  "ink.recode.command.bind": "将模块绑定到按键",
+  "ink.recode.command.toggle": "切换模块状态",
+  "ink.recode.command.config": "配置管理",
+  "ink.recode.command.list": "显示模块列表",
+  "ink.recode.notification.enabled": "%s 已启用",
+  "ink.recode.notification.disabled": "%s 已禁用",
+  "ink.recode.category.combat": "战斗",
+  "ink.recode.category.movement": "移动",
+  "ink.recode.category.render": "渲染",
+  "ink.recode.category.player": "玩家",
+  "ink.recode.category.misc": "杂项"
+}

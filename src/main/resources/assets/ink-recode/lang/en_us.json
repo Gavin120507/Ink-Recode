@@ -1,0 +1,16 @@
+{
+  "ink.recode.module.enabled": "Enabled",
+  "ink.recode.module.disabled": "Disabled",
+  "ink.recode.command.help": "Display all available commands",
+  "ink.recode.command.bind": "Bind a module to a key",
+  "ink.recode.command.toggle": "Toggle a module",
+  "ink.recode.command.config": "Config management",
+  "ink.recode.command.list": "Display module list",
+  "ink.recode.notification.enabled": "%s enabled",
+  "ink.recode.notification.disabled": "%s disabled",
+  "ink.recode.category.combat": "Combat",
+  "ink.recode.category.movement": "Movement",
+  "ink.recode.category.render": "Render",
+  "ink.recode.category.player": "Player",
+  "ink.recode.category.misc": "Misc"
+}

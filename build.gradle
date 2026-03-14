@@ -1,9 +1,7 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
-	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+	id 'fabric-loom' version "${loom_version}"
 	id 'maven-publish'
-	id "org.jetbrains.kotlin.jvm" version "2.3.10"
+	id 'org.jetbrains.kotlin.jvm' version '2.3.10'
 }
 
 version = project.mod_version
@@ -14,14 +12,28 @@ base {
 }
 
 repositories {
+	// 使用国内镜像加速下载
+	maven { url = 'https://maven.aliyun.com/repository/public' }
+	maven { url = 'https://maven.aliyun.com/repository/gradle-plugin' }
+	maven { url = 'https://maven.aliyun.com/repository/google' }
+	maven { url = 'https://maven.aliyun.com/repository/central' }
+	
 	maven {
-		url "https://packages.jetbrains.team/maven/p/skija/maven"
+		name = "JetBrains"
+		url = "https://packages.jetbrains.team/maven/p/skija/maven"
 	}
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+	maven {
+		name = "Jitpack"
+		url = "https://jitpack.io"
+	}
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
+	maven {
+		name = "modrinth"
+		url = "https://api.modrinth.com/maven"
+	}
 }
 
 dependencies {
@@ -36,9 +48,6 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
-	
-	// Gson for JSON parsing
-	implementation "com.google.code.gson:gson:2.10.1"
 }
 
 processResources {
@@ -53,28 +62,10 @@ tasks.withType(JavaCompile).configureEach {
 	it.options.release = 21
 }
 
-kotlin {
-	compilerOptions {
-		jvmTarget = JvmTarget.JVM_21
-	}
-}
-
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
 	withSourcesJar()
-
 	sourceCompatibility = JavaVersion.VERSION_21
 	targetCompatibility = JavaVersion.VERSION_21
-}
-
-jar {
-	inputs.property "archivesName", project.base.archivesName
-
-	from("LICENSE") {
-		rename { "${it}_${inputs.properties.archivesName}"}
-	}
 }
 
 // configure the maven publication

@@ -2,10 +2,15 @@
 	"required": true,
 	"package": "com.ink.recode.mixin",
 	"compatibilityLevel": "JAVA_21",
-	"mixins": [],
+	"mixins": [
+		"PlayerMoveMixin",
+		"PlayerUpdateMixin",
+		"PacketMixin"
+	],
 	"client": [
 		"TickMixin",
-		"KeyboardMixin"
+		"KeyboardMixin",
+		"RenderMixin"
 	],
 	"server": [],
 	"injectors": {
