@@ -5,10 +5,10 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents
 import org.slf4j.LoggerFactory
 import com.ink.recode.event.*
 import com.ink.recode.modules.impl.movement.Sprint
+import com.ink.recode.modules.impl.render.ClickGUIModule
 import com.ink.recode.config.ConfigSystem
 import com.ink.recode.command.CommandSystem
 import com.ink.recode.i18n.LanguageManager
-import com.ink.recode.ui.clickgui.ClickGUIModule
 
 object InkRecode : ModInitializer {
     private val logger = LoggerFactory.getLogger("ink-recode")

@@ -4,8 +4,9 @@ import com.ink.recode.value.BooleanValue
 import com.ink.recode.ui.animation.Animation
 import com.ink.recode.ui.animation.Easing
 import com.ink.recode.ui.render.Render2DUtils
+import com.ink.recode.ui.render.FontRenderer
 import com.ink.recode.ui.utils.GUIUtil
-import org.jetbrains.skija.Canvas
+import net.minecraft.client.util.math.MatrixStack
 import java.awt.Color
 
 /**
@@ -24,7 +25,7 @@ class BooleanValueComponent(
     private val hoverAnimation = Animation(Easing::easeOutExpo, 50)
     private val toggleAnimation = Animation(Easing::easeOutExpo, 150)
     
-    override fun draw(canvas: Canvas, scrollOffset: Double) {
+    override fun draw(matrices: MatrixStack, scrollOffset: Double) {
         val renderY = y - scrollOffset
         
         // 如果不在可视范围，跳过

@@ -2,9 +2,6 @@ package com.ink.recode.ui.clickgui
 
 import com.ink.recode.Module
 import com.ink.recode.Category
-import com.ink.recode.event.events.KeyboardKeyEvent
-import com.ink.recode.event.events.MouseButtonEvent
-import com.ink.recode.event.events.Render2DEvent
 import com.ink.recode.module.ModuleManager
 import com.ink.recode.ui.animation.Animation
 import com.ink.recode.ui.animation.Easing
@@ -12,66 +9,10 @@ import com.ink.recode.ui.theme.Themes
 import com.ink.recode.ui.utils.GUIUtil
 import com.ink.recode.ui.render.Render2DUtils
 import com.ink.recode.ui.render.FontRenderer
-import com.ink.recode.value.mode
-import com.ink.recode.value.boolean
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import org.lwjgl.glfw.GLFW
 import java.awt.Color
-
-/**
- * ClickGUI 主模块
- * Rise 6.0 风格的现代化 ClickGUI
- */
-class ClickGUIModule : Module("ClickGUI", "Open ClickGUI interface", Category.RENDER, arrayOf("gui", "menu")) {
-    
-    // GUI 配置
-    private val theme by mode("Theme", Themes.INK_DEFAULT, Themes.values().toList())
-    private val scale by float("Scale", 1.0f, 0.5f..2.0f)
-    private val showAnimations by boolean("Animations", true)
-    private val blurBackground by boolean("Blur Background", true)
-    private val showCategoryIcons by boolean("Category Icons", true)
-    
-    // GUI 实例
-    private var riseClickGUI: RiseClickGUI? = null
-    
-    // 动画
-    private val openAnimation = Animation(Easing::easeOutExpo, 300)
-    private var isOpening = false
-    
-    override fun onEnable() {
-        if (riseClickGUI == null) {
-            riseClickGUI = RiseClickGUI(this)
-        }
-        
-        isOpening = true
-        openAnimation.run(1.0)
-        
-        // 打开 GUI 屏幕
-        mc.setScreen(ClickGUIScreen(riseClickGUI!!))
-    }
-    
-    override fun onDisable() {
-        riseClickGUI?.close()
-        isOpening = false
-        openAnimation.run(0.0)
-        mc.setScreen(null)
-    }
-    
-    override fun init() {
-        riseClickGUI = RiseClickGUI(this)
-    }
-    
-    fun getRiseClickGUI(): RiseClickGUI? = riseClickGUI
-    
-    fun getCurrentTheme(): Themes = theme
-    
-    fun getScale(): Float = scale
-    
-    fun hasAnimations(): Boolean = showAnimations
-    
-    fun hasBlur(): Boolean = blurBackground
-}
 
 /**
  * ClickGUI 屏幕
@@ -123,7 +64,7 @@ class ClickGUIScreen(private val clickGUI: RiseClickGUI) : Screen() {
 /**
  * Rise 6.0 风格的 ClickGUI 实现
  */
-class RiseClickGUI(private val module: ClickGUIModule) {
+class RiseClickGUI(private val module: Module) {
     
     // 主窗口参数
     var positionX = 100.0
@@ -241,7 +182,7 @@ class RiseClickGUI(private val module: ClickGUIModule) {
         if (scale < 0.01) return
         
         // 获取主题色
-        val theme = module.getCurrentTheme()
+        val theme = Themes.INK_DEFAULT // 可以从配置中获取
         val accentColor = theme.getAccentColor(positionX, positionY)
         val backgroundColor = Color(23, 26, 33, (220 * opacity).toInt())
         val sidebarColor = Color(18, 20, 26, sidebarOpacityAnimation.getValueInt())
@@ -251,7 +192,7 @@ class RiseClickGUI(private val module: ClickGUIModule) {
         matrices.scale(scale.toFloat(), scale.toFloat(), 1.0f)
         
         // 绘制背景模糊（可选）
-        if (module.hasBlur()) {
+        if (true) { // 可以从配置中获取
             drawBlurBackground(matrices, positionX, positionY, windowWidth, windowHeight)
         }
         
@@ -526,7 +467,7 @@ class RiseClickGUI(private val module: ClickGUIModule) {
      * 关闭 GUI
      */
     fun close() {
-        isOpening = false
+        // 关闭逻辑
     }
     
     /**
